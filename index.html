@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Responsive Menu</title>
+    <style>
+      /* Reset state if di desktop */
+      @media (min-width: 768px) {
+        #menu-toggle {
+          display: none;
+        }
+
+        #menu-toggle:checked ~ .mobile-menu {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-black text-white font-sans">
+    <div class="relative">
+      <!-- Hamburger Toggle Checkbox -->
+      <input type="checkbox" id="menu-toggle" class="hidden peer" />
+
+      <!-- Header -->
+      <header
+        class="bg-black p-4 flex items-center justify-between z-50 relative"
+      >
+        <!-- Logo -->
+        <div class="text-xl font-bold">Your Logo</div>
+
+        <!-- Hamburger Button (Mobile Only) -->
+        <label for="menu-toggle" class="sm:block md:hidden cursor-pointer z-50">
+          <!-- Hamburger Icon -->
+          <svg
+            class="w-6 h-6 fill-white peer-checked:hidden"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M4 6h16M4 12h16M4 18h16"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <!-- Close Icon -->
+          <svg
+            class="w-6 h-6 fill-white hidden peer-checked:block"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 6L18 18M6 18L18 6"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </label>
+
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex gap-8 text-lg md:items-center">
+          <a href="#about" class="hover:text-orange-400">About</a>
+          <a href="#service" class="hover:text-orange-400">Service</a>
+          <a href="#portfolio" class="hover:text-orange-400">Portfolio</a>
+          <a href="#testimonials" class="hover:text-orange-400">Testimonials</a>
+          <a href="#faq" class="hover:text-orange-400">FAQ</a>
+          <a
+            href="#contact"
+            class="bg-orange-500 rounded-full px-5 py-2 font-semibold hover:bg-orange-600"
+          >
+            Let's Talk
+          </a>
+        </nav>
+      </header>
+
+      <!-- Mobile Menu (with CSS fallback to auto close on desktop) -->
+      <div
+        class="mobile-menu hidden peer-checked:flex md:hidden flex-col gap-6 text-lg fixed top-0 left-0 w-full h-full bg-black text-white p-6 z-40"
+      >
+        <nav class="mt-20 flex flex-col gap-6 text-lg">
+          <a href="#about" class="hover:text-orange-400">About</a>
+          <a href="#service" class="hover:text-orange-400">Service</a>
+          <a href="#portfolio" class="hover:text-orange-400">Portfolio</a>
+          <a href="#testimonials" class="hover:text-orange-400">Testimonials</a>
+          <a href="#faq" class="hover:text-orange-400">FAQ</a>
+          <a
+            href="#contact"
+            class="mt-6 bg-orange-500 rounded-full text-center py-3 font-semibold hover:bg-orange-600"
+          >
+            Let's Talk
+          </a>
+        </nav>
+      </div>
+    </div>
+  </body>
+</html>
